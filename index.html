@@ -12,6 +12,42 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <h1>Browser Template</h1>
+      <h1>Build-A-Bug</h1>
+      <p id="message"></p>
+
+      <form id="sign-in">
+        <label>Email</label>
+        <input name="credentials[email]" type="email">
+        <label>Password</label>
+        <input name="credentials[password]" type="password">
+        <br>
+        <input type="submit" value="Sign In">
+      </form>
+
+      <form id="sign-up">
+        <label>Email</label>
+        <input name="credentials[email]" type="email">
+        <label>Password</label>
+        <input name="credentials[password]" type="password">
+        <label>Password Confirmation</label>
+        <input name="credentials[password_confirmation]" type="password">
+        <br>
+        <input type="submit" value="Sign Up">
+      </form>
+
+      <form id="change-password">
+        <label>Email</label>
+        <input name="credentials[email]" type="email">
+        <label>Old Password</label>
+        <input name="credentials[password]" type="password">
+        <label>New Password</label>
+        <input id="new-password" name="credentials[password_confirmation]" type="password">
+        <br>
+        <input type="submit" value="Confirm">
+      </form>
+
+      <br>
+      <button id="sign-out">Sign Out</button>
+
     </body>
 </html>
