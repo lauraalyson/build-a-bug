@@ -5,6 +5,7 @@ const authEvents = require('./auth/events')
 // require('./example')
 
 $(() => {
+  $('#create-account').on('click', authEvents.onCreateAccount)
   $('#sign-up').on('submit', authEvents.onSignUp)
   $('#sign-in').on('submit', authEvents.onSignIn)
   $('#sign-out').on('click', authEvents.onSignOut)

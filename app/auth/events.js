@@ -4,6 +4,13 @@ const getFormFields = require('./../../lib/get-form-fields')
 const api = require('./api')
 const ui = require('./ui')
 
+const onCreateAccount = (event) => {
+  $('#sign-up').show()
+  $('#create-account').hide()
+  $('#sign-in').hide()
+  $('#confirm-message').text('Create an Account')
+}
+
 const onSignUp = function (event) {
   event.preventDefault()
   console.log('hi!')
@@ -35,12 +42,6 @@ const onSignOut = function (event) {
     .catch(ui.onSignOutFailure)
 }
 
-// const getData = (event) => {
-//   const form = event.target
-//   const data = getFormFields(form)
-//   return data
-// }
-
 const onChangePassword = function (event) {
   event.preventDefault()
   const form = event.target
@@ -53,6 +54,7 @@ const onChangePassword = function (event) {
 }
 
 module.exports = {
+  onCreateAccount,
   onSignUp,
   getFormFields,
   onSignIn,

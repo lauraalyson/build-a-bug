@@ -8,7 +8,7 @@ const onSignUpSuccess = (response) => {
   $('#sign-up').trigger('reset')
   $('#sign-up').hide()
   $('#sign-in').show()
-  $('#sign-out').show()
+  $('#sign-out').hide()
 }
 
 const onSignUpFailure = () => {
@@ -22,6 +22,9 @@ const onSignInSuccess = (response) => {
   $('#sign-in').trigger('reset')
   $('#sign-in').hide()
   $('#sign-up').hide()
+  $('#create-account').hide()
+  $('#sign-out').show()
+  $('#change-password').show()
   $('#sign-out').show()
 }
 
@@ -33,8 +36,10 @@ const onSignInFailure = () => {
 const onSignOutSuccess = () => {
   $('#message').text('Signed Out! See you next time.')
   $('#sign-in').show()
-  $('#sign-up').show()
+  $('#sign-up').hide()
+  $('#create-account').show()
   $('#sign-out').hide()
+  $('#change-password').hide()
 }
 
 const onSignOutFailure = () => {

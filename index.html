@@ -15,6 +15,7 @@
       <h1>Build-A-Bug</h1>
       <p id="message"></p>
 
+
       <form id="sign-in">
         <h2>Sign In</h2>
         <label>Email</label><br>
@@ -25,8 +26,9 @@
         <input type="submit" value="Sign In"><br>
       </form>
       <br>
-
-      <form id="sign-up">
+      
+      <p id="create-account">New here? Sign up.</p>
+      <form id="sign-up" style="display: none;">
         <h2>Sign Up</h2>
         <label>Email</label><br>
         <input name="credentials[email]" type="email"><br>
@@ -39,7 +41,7 @@
       </form>
       <br>
 
-      <form id="change-password">
+      <form id="change-password" style="display: none;">
         <h2>Change Password</h2>
         <label>Old Password</label><br>
         <input name="passwords[old]" type="password"><br>
@@ -51,7 +53,7 @@
       <br>
 
       <br>
-      <button id="sign-out">Sign Out</button>
+      <button id="sign-out" style="display: none;">Sign Out</button>
 
     </body>
 </html>
