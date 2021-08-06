@@ -30,8 +30,20 @@ const signOut = function (data) {
   })
 }
 
+const changePassword = function (data) {
+  return $.ajax({
+    url: 'https://library-express-api.herokuapp.com/change-password',
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Bearer ' + store.token
+    },
+    data: data
+  })
+}
+
 module.exports = {
   signUp,
   signIn,
-  signOut
+  signOut,
+  changePassword
 }
