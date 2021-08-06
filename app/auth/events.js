@@ -11,6 +11,11 @@ const onCreateAccount = (event) => {
   $('#confirm-message').text('Create an Account')
 }
 
+const onAdviceCorner = (event) => {
+  // $('#advice').trigger('reset')
+  $('#advice-response').show()
+}
+
 const onSignUp = function (event) {
   event.preventDefault()
   console.log('hi!')
@@ -54,6 +59,7 @@ const onChangePassword = function (event) {
 }
 
 module.exports = {
+  onAdviceCorner,
   onCreateAccount,
   onSignUp,
   getFormFields,

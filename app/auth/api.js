@@ -1,11 +1,12 @@
 'use strict'
 
+const config = require('./../config')
 const store = require('./../store')
 
 const signUp = function (data) {
   console.log(data)
   return $.ajax({
-    url: 'https://library-express-api.herokuapp.com/sign-up',
+    url: config.apiUrl + '/sign-up',
     method: 'POST',
     data: data
   })
@@ -14,7 +15,7 @@ const signUp = function (data) {
 const signIn = function (data) {
   console.log(data)
   return $.ajax({
-    url: 'https://library-express-api.herokuapp.com/sign-in',
+    url: config.apiUrl + '/sign-in',
     method: 'POST',
     data: data
   })
@@ -22,7 +23,7 @@ const signIn = function (data) {
 
 const signOut = function (data) {
   return $.ajax({
-    url: 'https://library-express-api.herokuapp.com/sign-out',
+    url: config.apiUrl + '/sign-out',
     method: 'DELETE',
     headers: {
       Authorization: 'Bearer ' + store.token
@@ -32,7 +33,7 @@ const signOut = function (data) {
 
 const changePassword = function (data) {
   return $.ajax({
-    url: 'https://library-express-api.herokuapp.com/change-password',
+    url: config.apiUrl + '/change-password',
     method: 'PATCH',
     headers: {
       Authorization: 'Bearer ' + store.token
