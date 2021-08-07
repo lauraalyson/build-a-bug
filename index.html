@@ -61,7 +61,8 @@
 
       <form id="name">
         <label>Name Me!</label>
-        <input name="name" type="name-of-bug">
+        <input name="bug[name]" type="text">
+        <input type="submit" value="submit">
       </form>
 
       <form id="error-code">
@@ -74,12 +75,13 @@
         <input name="age" type="age">
       </form>
 
+      <h2 id="bugBio"></h2>
+
       <br>
       <h3>Advice Corner</h3>
-      <input name="ad" type="advice">
-      
-      <p id="advice">Ask away...</p>
       <p id="advice-response" style="display: none;">idk man.. i'm just a bug</p>
+      <input name="ad" type="advice">
+      <p id="advice">Ask away...</p>
 
     </body>
 </html>

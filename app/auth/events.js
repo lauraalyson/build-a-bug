@@ -58,6 +58,16 @@ const onChangePassword = function (event) {
     .catch(ui.onChangePasswordFailure)
 }
 
+const onNameYourBug = function (event) {
+  event.preventDefault()
+  const form = event.target
+  const data = getFormFields(form)
+
+  api.nameYourBug(data)
+    .then(ui.onNameYourBugSuccess)
+    .catch(ui.onNameYourBugFailure)
+}
+
 module.exports = {
   onAdviceCorner,
   onCreateAccount,
@@ -65,5 +75,6 @@ module.exports = {
   getFormFields,
   onSignIn,
   onSignOut,
-  onChangePassword
+  onChangePassword,
+  onNameYourBug
 }

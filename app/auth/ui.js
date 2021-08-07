@@ -55,6 +55,15 @@ const onChangePasswordFailure = () => {
   $('#message').text('Hmm... try again')
 }
 
+const onNameYourBugSuccess = () => {
+  $('#message').text('yay! This bug has a name!')
+  // $('#bugBio').text(``)
+}
+
+const onNameYourBugFailure = (response) => {
+  $('#message').text('Hmm.. this did not work')
+}
+
 module.exports = {
   onSignUpFailure,
   onSignUpSuccess,
@@ -63,5 +72,7 @@ module.exports = {
   onSignOutSuccess,
   onSignOutFailure,
   onChangePasswordSuccess,
-  onChangePasswordFailure
+  onChangePasswordFailure,
+  onNameYourBugSuccess,
+  onNameYourBugFailure
 }
