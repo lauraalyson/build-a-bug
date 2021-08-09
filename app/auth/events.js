@@ -1,5 +1,6 @@
 'use strict'
 
+const store = require('../store')
 const getFormFields = require('./../../lib/get-form-fields')
 const api = require('./api')
 const ui = require('./ui')
@@ -16,7 +17,7 @@ const onAdviceCorner = (event) => {
   $('#advice-response').show()
 }
 
-const onSignUp = function (event) {
+const onSignUp = (event) => {
   event.preventDefault()
   console.log('hi!')
   const form = event.target
@@ -28,7 +29,7 @@ const onSignUp = function (event) {
     .catch(ui.onSignUpFailure)
 }
 
-const onSignIn = function (event) {
+const onSignIn = (event) => {
   event.preventDefault()
   console.log('Hello')
   const form = event.target
@@ -39,7 +40,7 @@ const onSignIn = function (event) {
     .catch(ui.onSignInFailure)
 }
 
-const onSignOut = function (event) {
+const onSignOut = (event) => {
   event.preventDefault()
 
   api.signOut()
@@ -47,7 +48,7 @@ const onSignOut = function (event) {
     .catch(ui.onSignOutFailure)
 }
 
-const onChangePassword = function (event) {
+const onChangePassword = (event) => {
   event.preventDefault()
   const form = event.target
   const data = getFormFields(form)
@@ -58,14 +59,45 @@ const onChangePassword = function (event) {
     .catch(ui.onChangePasswordFailure)
 }
 
-const onNameYourBug = function (event) {
+const onCreateBug = (event) => {
   event.preventDefault()
   const form = event.target
   const data = getFormFields(form)
 
-  api.nameYourBug(data)
-    .then(ui.onNameYourBugSuccess)
-    .catch(ui.onNameYourBugFailure)
+  api.createBug(data)
+    .then(ui.onCreateBugSuccess)
+    .catch(ui.onCreateBugFailure)
+}
+
+const onShowBugCage = () => {
+  api.showBugCage()
+    .then(ui.onShowBugCageSuccess)
+    .catch(ui.onShowBugCageFailure)
+}
+
+const onDeleteBug = (event) => {
+  event.preventDefault()
+
+  const form = event.target
+  const deleteBug = getFormFields(form)
+  console.log('bug to delete: ', deleteBug)
+
+  const deleteId = deleteBug.bug._id
+  store.bugId = deleteId
+  console.log('deletedId is: ', deleteId)
+
+  api.deleteBug(deleteId)
+    .then(ui.onDeleteBugSuccess)
+    .catch(ui.onDeleteBugFailure)
+}
+
+const onDynamicDeleteBug = (event) => {
+  console.log($(event.target).data('_id'))
+  const bugId = $(event.target).data('_id')
+
+  api.deleteBug(bugId)
+    .then(ui.onDeleteBugSuccess)
+    .catch(ui.onDeleteBugFailure)
 }
 
 module.exports = {
@@ -76,5 +108,8 @@ module.exports = {
   onSignIn,
   onSignOut,
   onChangePassword,
-  onNameYourBug
+  onCreateBug,
+  onShowBugCage,
+  onDeleteBug,
+  onDynamicDeleteBug
 }

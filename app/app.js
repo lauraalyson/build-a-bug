@@ -5,11 +5,15 @@ const authEvents = require('./auth/events')
 // require('./example')
 
 $(() => {
-  $('#advice').on('click', authEvents.onAdviceCorner)
   $('#create-account').on('click', authEvents.onCreateAccount)
   $('#sign-up').on('submit', authEvents.onSignUp)
   $('#sign-in').on('submit', authEvents.onSignIn)
   $('#sign-out').on('click', authEvents.onSignOut)
   $('#change-password').on('submit', authEvents.onChangePassword)
-  $('#name').on('submit', authEvents.onNameYourBug)
+  $('#create-bug').on('submit', authEvents.onCreateBug)
+  $('#bug-cage').on('click', authEvents.onShowBugCage)
+  $('#advice').on('click', authEvents.onAdviceCorner)
+
+  $('#delete-bug-form').on('submit', authEvents.onDeleteBug)
+  $('#deleted-bug').on('click', '.dynamic-delete-bug', authEvents.onDynamicDeleteBug)
 })

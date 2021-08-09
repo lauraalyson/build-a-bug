@@ -59,21 +59,27 @@
         <img src="https://i.imgur.com/QJZoogx.gif">
       </div>
 
-      <form id="name">
-        <label>Name Me!</label>
-        <input name="bug[name]" type="text">
+      <form id="create-bug">
+        <label>Name Me!</label><br>
+        <input name="bug[name]" type="text"><br>
+        <label>Age</label><br>
+        <input name="bug[age]" type="text"><br>
+        <label>Favorite Error Code</label><br>
+        <input name="bug[favErrorCode]" type="text"><br>
         <input type="submit" value="submit">
       </form>
 
-      <form id="error-code">
-        <label>Favorite Error Code</label>
-        <input name="error" type="fav-error-code">
+
+      <h3>Delete Bug</h3>
+      <div id="deleted-bug"></div>
+      <form id="delete-bug-form">
+        <label>Bug ID</label>
+        <input name="bug[_id]" type="text">
+        <button type="submit">Submit</button>
       </form>
 
-      <form id="age">
-        <label>Age</label>
-        <input name="age" type="age">
-      </form>
+      <button id="bug-cage" value="Bug Cage" name="bug">Show Bugs</button>
+      <div id="bugcage"></div>
 
       <h2 id="bugBio"></h2>
 

@@ -55,13 +55,51 @@ const onChangePasswordFailure = () => {
   $('#message').text('Hmm... try again')
 }
 
-const onNameYourBugSuccess = () => {
-  $('#message').text('yay! This bug has a name!')
-  // $('#bugBio').text(``)
+const onCreateBugSuccess = (response) => {
+  console.log('This is the response.bug: ' + response.bug.name)
+  console.log('This is the response.bug: ' + response.bug.age)
+  console.log('This is the response.bug: ' + response.bug.favErrorCode)
+  // $('#message').text(`yay! Now ${response.bug.name} really has autonomy. This bug is really coming along!`)
+  $('#message').text(`Hi! I am ${response.bug.name}, I am ${response.bug.age} years old and i am quite partial to the ${response.bug.favErrorCode} error code.`)
 }
 
-const onNameYourBugFailure = (response) => {
+const onCreateBugFailure = () => {
   $('#message').text('Hmm.. this did not work')
+}
+
+const onShowBugCageSuccess = (response) => {
+  $('#message').text('')
+  console.log('This is the response.bug: ' + response.bugs)
+  const bugs = response.bugs
+  let bugsHtml = ''
+
+  bugs.forEach(bug => {
+    console.log(bug)
+    bugsHtml += `
+      <h4>Name: ${bug.name}</h4>
+      <p>Age: ${bug.age}</p>
+      <p>Favorite Error Code: ${bug.favErrorCode}</p>
+      <p>Bug Id: ${bug._id}</p>
+      <button class='dynamic-delete-bug' data-id=${bug._id}>Delete</button>
+    `
+  })
+
+  $('#deleted-bug').html(bugsHtml)
+  $('form').trigger('reset')
+}
+
+const onShowBugCageFailure = () => {
+  console.log('no bugs found')
+  $('#message').text('Cannot find bugs')
+}
+
+const onDeleteBugSuccess = () => {
+  $('#message').text('Bug was deleted')
+  $('form').trigger('reset')
+}
+
+const onDeleteBugFailure = () => {
+  $('#message').text('Unable to delete bug')
 }
 
 module.exports = {
@@ -73,6 +111,10 @@ module.exports = {
   onSignOutFailure,
   onChangePasswordSuccess,
   onChangePasswordFailure,
-  onNameYourBugSuccess,
-  onNameYourBugFailure
+  onCreateBugFailure,
+  onCreateBugSuccess,
+  onShowBugCageSuccess,
+  onShowBugCageFailure,
+  onDeleteBugSuccess,
+  onDeleteBugFailure
 }

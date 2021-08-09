@@ -21,7 +21,7 @@ const signIn = (data) => {
   })
 }
 
-const signOut = (data) => {
+const signOut = () => {
   return $.ajax({
     url: config.apiUrl + '/sign-out',
     method: 'DELETE',
@@ -42,7 +42,7 @@ const changePassword = (data) => {
   })
 }
 
-const nameYourBug = (data) => {
+const createBug = (data) => {
   return $.ajax({
     url: config.apiUrl + '/bugs',
     method: 'POST',
@@ -53,10 +53,32 @@ const nameYourBug = (data) => {
   })
 }
 
+const showBugCage = () => {
+  return $.ajax({
+    url: config.apiUrl + '/bugs',
+    method: 'GET',
+    headers: {
+      Authorization: 'Bearer ' + store.token
+    }
+  })
+}
+
+const deleteBug = () => {
+  return $.ajax({
+    url: config.apiUrl + '/bugs/' + store.bugId,
+    method: 'DELETE',
+    header: {
+      Authorization: 'Bearer ' + store.token
+    }
+  })
+}
+
 module.exports = {
   signUp,
   signIn,
   signOut,
   changePassword,
-  nameYourBug
+  createBug,
+  showBugCage,
+  deleteBug
 }
