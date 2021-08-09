@@ -75,29 +75,43 @@ const onShowBugCage = () => {
     .catch(ui.onShowBugCageFailure)
 }
 
-const onDeleteBug = (event) => {
+// const onDeleteBug = (event) => {
+//   event.preventDefault()
+
+//   const form = event.target
+//   const deleteBug = getFormFields(form)
+//   console.log('bug to delete: ', deleteBug)
+
+//   const deleteId = deleteBug.bug._id
+//   store.bugId = deleteId
+//   console.log('deletedId is: ', deleteId)
+
+//   api.deleteBug(deleteId)
+//     .then(ui.onDeleteBugSuccess)
+//     .catch(ui.onDeleteBugFailure)
+// }
+
+const onDynamicDeleteButton = (event) => {
+  console.log($(event.target).data('id'))
+  store.bugId = $(event.target).data('id')
+
+  api.deleteBug(store.bugId)
+    .then(ui.onDeleteBookSuccess)
+    .catch(ui.onFailure)
+}
+
+const onUpdateBug = function (event) {
   event.preventDefault()
 
   const form = event.target
-  const deleteBug = getFormFields(form)
-  console.log('bug to delete: ', deleteBug)
+  const bugData = getFormFields(form)
+  console.log('update bug data is: ', bugData)
+  store.updateBugId = bugData.bug._id
+  console.log('This is store.updateBugId ' + store.updateBugId)
 
-  const deleteId = deleteBug.bug._id
-  store.bugId = deleteId
-  console.log('deletedId is: ', deleteId)
-
-  api.deleteBug(deleteId)
-    .then(ui.onDeleteBugSuccess)
-    .catch(ui.onDeleteBugFailure)
-}
-
-const onDynamicDeleteBug = (event) => {
-  console.log($(event.target).data('_id'))
-  const bugId = $(event.target).data('_id')
-
-  api.deleteBug(bugId)
-    .then(ui.onDeleteBugSuccess)
-    .catch(ui.onDeleteBugFailure)
+  api.updateBug(store.updateBugId, bugData)
+    .then(ui.onUpdateBugSuccess)
+    .catch(ui.onUpdateBugFailure)
 }
 
 module.exports = {
@@ -110,6 +124,7 @@ module.exports = {
   onChangePassword,
   onCreateBug,
   onShowBugCage,
-  onDeleteBug,
-  onDynamicDeleteBug
+  // onDeleteBug,
+  onDynamicDeleteButton,
+  onUpdateBug
 }

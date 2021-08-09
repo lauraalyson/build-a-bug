@@ -67,9 +67,17 @@ const deleteBug = () => {
   return $.ajax({
     url: config.apiUrl + '/bugs/' + store.bugId,
     method: 'DELETE',
-    header: {
+    headers: {
       Authorization: 'Bearer ' + store.token
     }
+  })
+}
+
+const updateBug = (bugData) => {
+  return $.ajax({
+    url: config.apiUrl + '/bugs/' + store.updateBugId,
+    method: 'PATCH',
+    data: bugData
   })
 }
 
@@ -80,5 +88,6 @@ module.exports = {
   changePassword,
   createBug,
   showBugCage,
-  deleteBug
+  deleteBug,
+  updateBug
 }

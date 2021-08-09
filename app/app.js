@@ -13,7 +13,8 @@ $(() => {
   $('#create-bug').on('submit', authEvents.onCreateBug)
   $('#bug-cage').on('click', authEvents.onShowBugCage)
   $('#advice').on('click', authEvents.onAdviceCorner)
-
-  $('#delete-bug-form').on('submit', authEvents.onDeleteBug)
-  $('#deleted-bug').on('click', '.dynamic-delete-bug', authEvents.onDynamicDeleteBug)
+  $('#update-bug-form').on('submit', authEvents.onUpdateBug)
+  // $('#delete-bug-form').on('submit', authEvents.onDeleteBug)
+  $('#updated-bug')
+  $('#deleted-bug').on('click', '.dynamic-delete-bug', authEvents.onDynamicDeleteButton)
 })

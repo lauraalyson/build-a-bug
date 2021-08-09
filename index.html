@@ -70,9 +70,9 @@
       </form>
 
 
-      <h3>Delete Bug</h3>
-      <div id="deleted-bug"></div>
+      <p id="deleted-bug"></p>
       <form id="delete-bug-form">
+        <h2>Delete Bug</h2>
         <label>Bug ID</label>
         <input name="bug[_id]" type="text">
         <button type="submit">Submit</button>
@@ -80,6 +80,16 @@
 
       <button id="bug-cage" value="Bug Cage" name="bug">Show Bugs</button>
       <div id="bugcage"></div>
+
+      <!-- Rename Bug -->
+      <h3>Update Bug</h3>
+      <form id="update-bug-form">
+        <label>Bug ID</label>
+        <input name="bug[_id]" type="text">
+        <label>Bug name</label>
+        <input name="bug[name]" type="text">
+        <button type="submit">Submit</button>
+      </form>
 
       <h2 id="bugBio"></h2>
 

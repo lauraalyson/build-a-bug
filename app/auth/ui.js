@@ -26,6 +26,7 @@ const onSignInSuccess = (response) => {
   $('#sign-out').show()
   $('#change-password').show()
   $('#sign-out').show()
+  console.log('this is store.token: ' + store.token)
 }
 
 const onSignInFailure = () => {
@@ -33,7 +34,7 @@ const onSignInFailure = () => {
   $('#sign-in').trigger('reset')
 }
 
-const onSignOutSuccess = () => {
+const onSignOutSuccess = (response) => {
   $('#message').text('Signed Out! See you next time.')
   $('#sign-in').show()
   $('#sign-up').hide()
@@ -68,7 +69,6 @@ const onCreateBugFailure = () => {
 }
 
 const onShowBugCageSuccess = (response) => {
-  $('#message').text('')
   console.log('This is the response.bug: ' + response.bugs)
   const bugs = response.bugs
   let bugsHtml = ''
@@ -81,6 +81,7 @@ const onShowBugCageSuccess = (response) => {
       <p>Favorite Error Code: ${bug.favErrorCode}</p>
       <p>Bug Id: ${bug._id}</p>
       <button class='dynamic-delete-bug' data-id=${bug._id}>Delete</button>
+      <button class='dynamic-update-bug' data-id${bug._id}>Update</button>
     `
   })
 
@@ -102,6 +103,17 @@ const onDeleteBugFailure = () => {
   $('#message').text('Unable to delete bug')
 }
 
+const onUpdateBugSuccess = (response) => {
+  console.log(`Server response: ${response}`)
+  $('#message').text('Book was updated')
+  $('form').trigger('reset')
+}
+
+const onUpdateBugFailure = (error) => {
+  $('#message').text('Cannot update bug.')
+  console.log(error)
+}
+
 module.exports = {
   onSignUpFailure,
   onSignUpSuccess,
@@ -116,5 +128,7 @@ module.exports = {
   onShowBugCageSuccess,
   onShowBugCageFailure,
   onDeleteBugSuccess,
-  onDeleteBugFailure
+  onDeleteBugFailure,
+  onUpdateBugSuccess,
+  onUpdateBugFailure
 }
