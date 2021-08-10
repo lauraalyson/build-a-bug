@@ -102,17 +102,20 @@ const onDynamicDeleteButton = (event) => {
 }
 
 const onShowUpdateField = (event) => {
+  store.updateId = $(event.target).data('id')
+  console.log('this is store.updateId: ' + store.updateId)
   $('.update-field').show()
 }
 
 const onUpdateBug = (event) => {
-  console.log('in onUpdateBug')
   event.preventDefault()
-  store.updateBugId = $(event.target).data('id')
   const form = event.target
+  console.log('this is the form: ' + form)
   const data = getFormFields(form)
+  const updateData = data.bug.name
+  console.log('this is updateData ' + updateData)
 
-  api.updateBug(store.updateBugId, data)
+  api.updateBug(updateData)
     .then(ui.onUpdateBugSuccess)
     .catch(ui.onUpdateBugFailure)
 }

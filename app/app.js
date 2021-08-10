@@ -12,11 +12,12 @@ $(() => {
   $('#change-password').on('submit', authEvents.onChangePassword)
   $('#create-bug').on('submit', authEvents.onCreateBug)
   $('#bug-cage').on('click', authEvents.onShowBugCage)
-  $('#deleted-bug').on('click', '.dynamic-delete-bug', authEvents.onDynamicDeleteButton)
+  $('#bug-message').on('click', '.dynamic-delete-bug', authEvents.onDynamicDeleteButton)
   $('#advice').on('click', authEvents.onAdviceCorner)
   $('#update-book-form').on('submit', authEvents.onUpdateBug)
+  // $('#bug-message').on('click', 'update-field', authEvents.onShowUpdateField)
 
-  $('#deleted-bug').on('click', 'update-field', authEvents.onShowUpdateField)
+  $('#bug-message').on('submit', '.update-field', authEvents.onUpdateBug)
 
-  $('#deleted-bug').on('click', '.show-update-field', authEvents.onShowUpdateField)
+  $('#bug-message').on('click', '.show-update-field', authEvents.onShowUpdateField)
 })

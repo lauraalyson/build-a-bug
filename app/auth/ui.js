@@ -77,23 +77,24 @@ const onShowBugCageSuccess = (response) => {
   bugs.forEach(bug => {
     console.log(bug)
     bugsHtml += `
+      <img src=${bug.image}>
       <h4>Name: ${bug.name}</h4>
       <p>Age: ${bug.age}</p>
       <p>Favorite Error Code: ${bug.favErrorCode}</p>
       <p>Bug Id: ${bug._id}</p>
       <button class='dynamic-delete-bug' data-id=${bug._id}>Delete</button>
 
-      <button class='show-update-field'>Update</button>
+      <button data-id=${bug._id} class='show-update-field'>Update</button>
 
-      <div class='update-field' style='display:none;'>
-      <input name="bug[name]" type="text">
-      <button data-id=${bug._id}>Update Name</button>
-      </div>
+      <form class='update-field' style='display:none;'>
+      <input name='bug[name]' type='text'>
+      <input type='submit' value='submit'>
+      </form>
     `
   })
 
-  $('#deleted-bug').html(bugsHtml)
-  $('form').trigger('reset')
+  $('#bug-message').html(bugsHtml)
+  // $('form').trigger('reset')
 }
 
 const onShowBugCageFailure = () => {
@@ -112,11 +113,12 @@ const onDeleteBugFailure = () => {
 
 const onUpdateBugSuccess = () => {
   $('#message').text('Bug was updated')
+  $('#bug-message').trigger('reset')
 }
 
 const onUpdateBugFailure = (error) => {
   $('#message').text('Cannot update bug.')
-  console.log(error)
+  console.error(error)
 }
 
 module.exports = {
