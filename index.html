@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Example</title>
+      <title>Build-A-Bug</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Do not add `link` tags-->
@@ -11,6 +11,7 @@
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
+
     <body>
       <h1>Build-A-Bug</h1>
       <p id="message"></p>
@@ -56,8 +57,10 @@
       <button id="sign-out" style="display: none;">Sign Out</button>
 
       <div>
-        <img src="https://i.imgur.com/QJZoogx.gif">
+        <img style="max-width:20%;" src="https://i.imgur.com/QJZoogx.gif">
       </div>
+
+      <div id="build-a-bug" style="display: none;">
 
       <form id="create-bug">
         <label>Name Me!</label><br>
@@ -71,33 +74,18 @@
 
 
       <p id="deleted-bug"></p>
-      <form id="delete-bug-form">
-        <h2>Delete Bug</h2>
-        <label>Bug ID</label>
-        <input name="bug[_id]" type="text">
-        <button type="submit">Submit</button>
-      </form>
 
       <button id="bug-cage" value="Bug Cage" name="bug">Show Bugs</button>
       <div id="bugcage"></div>
 
-      <!-- Rename Bug -->
-      <h3>Update Bug</h3>
-      <form id="update-bug-form">
-        <label>Bug ID</label>
-        <input name="bug[_id]" type="text">
-        <label>Bug name</label>
-        <input name="bug[name]" type="text">
-        <button type="submit">Submit</button>
-      </form>
-
-      <h2 id="bugBio"></h2>
 
       <br>
       <h3>Advice Corner</h3>
       <p id="advice-response" style="display: none;">idk man.. i'm just a bug</p>
       <input name="ad" type="advice">
       <p id="advice">Ask away...</p>
+      </div>
+
 
     </body>
 </html>

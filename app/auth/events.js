@@ -92,6 +92,7 @@ const onShowBugCage = () => {
 // }
 
 const onDynamicDeleteButton = (event) => {
+  event.preventDefault()
   console.log($(event.target).data('id'))
   store.bugId = $(event.target).data('id')
 
@@ -100,16 +101,18 @@ const onDynamicDeleteButton = (event) => {
     .catch(ui.onFailure)
 }
 
-const onUpdateBug = function (event) {
+const onShowUpdateField = (event) => {
+  $('.update-field').show()
+}
+
+const onUpdateBug = (event) => {
+  console.log('in onUpdateBug')
   event.preventDefault()
-
+  store.updateBugId = $(event.target).data('id')
   const form = event.target
-  const bugData = getFormFields(form)
-  console.log('update bug data is: ', bugData)
-  store.updateBugId = bugData.bug._id
-  console.log('This is store.updateBugId ' + store.updateBugId)
+  const data = getFormFields(form)
 
-  api.updateBug(store.updateBugId, bugData)
+  api.updateBug(store.updateBugId, data)
     .then(ui.onUpdateBugSuccess)
     .catch(ui.onUpdateBugFailure)
 }
@@ -124,7 +127,7 @@ module.exports = {
   onChangePassword,
   onCreateBug,
   onShowBugCage,
-  // onDeleteBug,
   onDynamicDeleteButton,
-  onUpdateBug
+  onUpdateBug,
+  onShowUpdateField
 }

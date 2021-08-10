@@ -26,6 +26,7 @@ const onSignInSuccess = (response) => {
   $('#sign-out').show()
   $('#change-password').show()
   $('#sign-out').show()
+  $('#build-a-bug').show()
   console.log('this is store.token: ' + store.token)
 }
 
@@ -81,7 +82,13 @@ const onShowBugCageSuccess = (response) => {
       <p>Favorite Error Code: ${bug.favErrorCode}</p>
       <p>Bug Id: ${bug._id}</p>
       <button class='dynamic-delete-bug' data-id=${bug._id}>Delete</button>
-      <button class='dynamic-update-bug' data-id${bug._id}>Update</button>
+
+      <button class='show-update-field'>Update</button>
+
+      <div class='update-field' style='display:none;'>
+      <input name="bug[name]" type="text">
+      <button data-id=${bug._id}>Update Name</button>
+      </div>
     `
   })
 
@@ -103,10 +110,8 @@ const onDeleteBugFailure = () => {
   $('#message').text('Unable to delete bug')
 }
 
-const onUpdateBugSuccess = (response) => {
-  console.log(`Server response: ${response}`)
-  $('#message').text('Book was updated')
-  $('form').trigger('reset')
+const onUpdateBugSuccess = () => {
+  $('#message').text('Bug was updated')
 }
 
 const onUpdateBugFailure = (error) => {

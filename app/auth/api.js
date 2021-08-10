@@ -73,11 +73,11 @@ const deleteBug = () => {
   })
 }
 
-const updateBug = (bugData) => {
+const updateBug = (data) => {
   return $.ajax({
     url: config.apiUrl + '/bugs/' + store.updateBugId,
     method: 'PATCH',
-    data: bugData
+    data: data
   })
 }
 
