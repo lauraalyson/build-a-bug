@@ -77,7 +77,7 @@ const onCreateBugFailure = () => {
 
 const onChooseBugTypeSuccess = (response) => {
   $('.bug-types').hide()
-  $('#bug-message').text('Dang! That is one good lookin bug. Click on your bug cage to check out your swarm.')
+  $('#bug-message').text('Dang! That is one good lookin ' + store.imageVal + '. Click on your bug cage to check out your swarm.')
 }
 
 const onChooseBugTypeFailure = () => {

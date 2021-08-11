@@ -95,12 +95,14 @@ const onChooseBugType = function (event) {
   console.log(store.updateImage)
   console.log(image)
   const imageSrc = $(this).attr('src')
+  store.imageVal = $(this).attr('value')
+  console.log('This is imageVal: ' + store.imageVal)
   console.log('this is imageSrc ' + imageSrc)
   store.updateImg = imageSrc
 
   api.updateImg(store.updateImg)
     .then(ui.onChooseBugTypeSuccess)
-    .catch(console.log('did not work'))
+    .catch(ui.onChooseBugTypeFailure)
 }
 
 const onShowBugCage = () => {
