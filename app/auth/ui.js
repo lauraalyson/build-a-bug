@@ -94,7 +94,7 @@ const onShowBugCageSuccess = (response) => {
     bugsHtml += `
     <div class='bug-cards'>
       <img src=${bug.image}><br>
-      <p>Hey, I'm ${bug.name}! I've been around for ${bug.age} years and I'm quite the fan of the ${bug.favErrorCode} error code. Nice to meet ya!</p>
+      <p>Hey, I'm ${bug.name}! I've been around for ${bug.age} years and I'm quite the fan of the '${bug.favErrorCode}' error code. My friends say I remind them of ${bug.bugsLifeCharacter} from my favorite movie, A Bugs Life. Nice to meet ya!</p>
 
 
       <button class='dynamic-delete-bug' data-id=${bug._id}>Release</button>
@@ -115,7 +115,7 @@ const onShowBugCageSuccess = (response) => {
       <input value='Ask Away' type='submit'><br>
       </form>
 
-      <p class='advice-response' style='display:none;'>'I'm just a bug.. I have no idea!" <br> - ${bug.name}</p>
+      <p class='advice-response' style='display:none;'><br> "I have no idea!! After all.. I'm just a bug"<br> - ${bug.name}</p>
     </div>
     `
   })

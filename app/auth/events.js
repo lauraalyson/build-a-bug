@@ -73,6 +73,7 @@ const onChangePassword = (event) => {
 const onShowCreateBug = (event) => {
   $('#create-bug').show()
   $('#bug-message').text('')
+  $('#message').hide()
 }
 
 const onCreateBug = (event) => {
@@ -107,6 +108,7 @@ const onChooseBugType = function (event) {
 
 const onShowBugCage = () => {
   $('#create-bug').hide()
+  $('#message').hide()
 
   api.showBugCage()
     .then(ui.onShowBugCageSuccess)
