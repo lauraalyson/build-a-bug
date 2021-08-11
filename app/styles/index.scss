@@ -1,8 +1,60 @@
 @import '~bootstrap/scss/bootstrap';
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@300;500&family=Prompt:ital,wght@0,200;0,300;1,200;1,300&family=Rubik:wght@300&family=Work+Sans:ital,wght@0,300;1,300&display=swap');
+
+
+// font-family: 'Archivo', sans-serif;
+// font-family: 'Prompt', sans-serif;
+// font-family: 'Rubik', sans-serif;
+// font-family: 'Work Sans', sans-serif;
 
 img {
-  max-width: 20%;
+  max-width: 35%;
 }
+
+body {
+  padding: 100px;
+  font-family: 'Prompt', sans-serif;
+  // background-image: url("");
+  // background-position: center;
+  // background-repeat: no-repeat;
+  // background-size: cover;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Archivo', sans-serif;
+}
+
+// #bug-cage, #bugcage {
+//   position: absolute;
+//   bottom: 0;
+//   right: 10%;
+// }
+
+// #show-all-bugs {
+//   max-width: 30%;
+// }
+
+
+.bug-cards {
+  .card {
+  width: 450px;
+  height: 250px;
+  background-color:green;
+  background: linear-gradient(#f8f8f8, #fff);
+  box-shadow: 0 8px 16px -8px rgba(0,0,0,0.4);
+  border-radius: 6px;
+  overflow: hidden;
+  position: relative;
+  margin: 1.5rem;
+  }
+}
+// .bug-details {
+//   max-width: 50%;
+//   align-content: center;
+//   color: green;
+//   background-color: orange;
+// }
+
 // input {
 //     background: transparent;
 //     border: none;

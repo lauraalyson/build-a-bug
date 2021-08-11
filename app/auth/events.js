@@ -9,11 +9,11 @@ const onCreateAccount = (event) => {
   $('#sign-up').show()
   $('#create-account').hide()
   $('#sign-in').hide()
+  $('#build-a-bug').hide()
   $('#confirm-message').text('Create an Account')
 }
 
 const onAdviceCorner = (event) => {
-  // $('#advice').trigger('reset')
   $('#advice-response').show()
 }
 
@@ -48,6 +48,10 @@ const onSignOut = (event) => {
     .catch(ui.onSignOutFailure)
 }
 
+const onShowChangePassword = (event) => {
+  $('#change-password').toggle()
+}
+
 const onChangePassword = (event) => {
   event.preventDefault()
   const form = event.target
@@ -59,14 +63,37 @@ const onChangePassword = (event) => {
     .catch(ui.onChangePasswordFailure)
 }
 
+const onShowCreateBug = (event) => {
+  $('#create-bug').show()
+  $('#bug-message').text('')
+}
+
 const onCreateBug = (event) => {
   event.preventDefault()
   const form = event.target
   const data = getFormFields(form)
+  console.log(data)
+  $('#create-bug').trigger('reset')
 
   api.createBug(data)
     .then(ui.onCreateBugSuccess)
     .catch(ui.onCreateBugFailure)
+}
+
+const onChooseBugType = function (event) {
+  $('#create-bug').hide()
+  event.preventDefault()
+  const image = event.target
+  store.updateImage = image.url
+  console.log(store.updateImage)
+  console.log(image)
+  const imageSrc = $(this).attr('src')
+  console.log('this is imageSrc ' + imageSrc)
+  store.updateImg = imageSrc
+
+  api.updateImg(store.updateImg)
+    .then(ui.onChooseBugTypeSuccess)
+    .catch(console.log('did not work'))
 }
 
 const onShowBugCage = () => {
@@ -75,30 +102,14 @@ const onShowBugCage = () => {
     .catch(ui.onShowBugCageFailure)
 }
 
-// const onDeleteBug = (event) => {
-//   event.preventDefault()
-
-//   const form = event.target
-//   const deleteBug = getFormFields(form)
-//   console.log('bug to delete: ', deleteBug)
-
-//   const deleteId = deleteBug.bug._id
-//   store.bugId = deleteId
-//   console.log('deletedId is: ', deleteId)
-
-//   api.deleteBug(deleteId)
-//     .then(ui.onDeleteBugSuccess)
-//     .catch(ui.onDeleteBugFailure)
-// }
-
 const onDynamicDeleteButton = (event) => {
   event.preventDefault()
   console.log($(event.target).data('id'))
   store.bugId = $(event.target).data('id')
 
   api.deleteBug(store.bugId)
-    .then(ui.onDeleteBookSuccess)
-    .catch(ui.onFailure)
+    .then(ui.onDeleteBugSuccess)
+    .catch(ui.onDeleteBugFailure)
 }
 
 const onShowUpdateField = (event) => {
@@ -127,8 +138,11 @@ module.exports = {
   getFormFields,
   onSignIn,
   onSignOut,
+  onShowChangePassword,
   onChangePassword,
+  onShowCreateBug,
   onCreateBug,
+  onChooseBugType,
   onShowBugCage,
   onDynamicDeleteButton,
   onUpdateBug,

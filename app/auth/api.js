@@ -53,6 +53,21 @@ const createBug = (data) => {
   })
 }
 
+const updateImg = () => {
+  return $.ajax({
+    url: config.apiUrl + '/bugs/' + store.updateId,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Bearer ' + store.token
+    },
+    data: {
+      bug: {
+        image: store.updateImg
+      }
+    }
+  })
+}
+
 const showBugCage = () => {
   return $.ajax({
     url: config.apiUrl + '/bugs',
@@ -94,6 +109,7 @@ module.exports = {
   signOut,
   changePassword,
   createBug,
+  updateImg,
   showBugCage,
   deleteBug,
   updateBug

@@ -24,9 +24,12 @@ const onSignInSuccess = (response) => {
   $('#sign-up').hide()
   $('#create-account').hide()
   $('#sign-out').show()
-  $('#change-password').show()
+  $('#show-change-password').show()
   $('#sign-out').show()
   $('#build-a-bug').show()
+  $('#show-create-bug').show()
+  $('#create-bug').hide()
+  $('#bug-cage').show()
   console.log('this is store.token: ' + store.token)
 }
 
@@ -41,7 +44,10 @@ const onSignOutSuccess = (response) => {
   $('#sign-up').hide()
   $('#create-account').show()
   $('#sign-out').hide()
+  $('#show-change-password').hide()
   $('#change-password').hide()
+  $('#build-a-bug').hide()
+  $('#confirm-new-password').hide()
 }
 
 const onSignOutFailure = () => {
@@ -49,8 +55,9 @@ const onSignOutFailure = () => {
 }
 
 const onChangePasswordSuccess = () => {
-  $('#message').text('Congrats password changed successfully')
-  $('#change-password').trigger('reset')
+  $('#message').text('Woohoo! New password!')
+  $('#change-password').hide()
+  $('#confirm-new-password').show()
 }
 
 const onChangePasswordFailure = () => {
@@ -58,15 +65,23 @@ const onChangePasswordFailure = () => {
 }
 
 const onCreateBugSuccess = (response) => {
-  console.log('This is the response.bug: ' + response.bug.name)
-  console.log('This is the response.bug: ' + response.bug.age)
-  console.log('This is the response.bug: ' + response.bug.favErrorCode)
-  // $('#message').text(`yay! Now ${response.bug.name} really has autonomy. This bug is really coming along!`)
-  $('#message').text(`Hi! I am ${response.bug.name}, I am ${response.bug.age} years old and i am quite partial to the ${response.bug.favErrorCode} error code.`)
+  $('#bug-message').text(`Yay! Your bug is really coming along. What kind of bug is ${response.bug.name}?`)
+  $('.bug-types').show()
+  $('#create-bug').hide()
+  store.updateId = response.bug._id
 }
 
 const onCreateBugFailure = () => {
   $('#message').text('Hmm.. this did not work')
+}
+
+const onChooseBugTypeSuccess = (response) => {
+  $('.bug-types').hide()
+  $('#bug-message').text('Dang! That is one good lookin bug. Click on your bug cage to check out your swarm.')
+}
+
+const onChooseBugTypeFailure = () => {
+  $('#message').text('hmmm... try')
 }
 
 const onShowBugCageSuccess = (response) => {
@@ -77,14 +92,14 @@ const onShowBugCageSuccess = (response) => {
   bugs.forEach(bug => {
     console.log(bug)
     bugsHtml += `
-      <img src=${bug.image}>
-      <h4>Name: ${bug.name}</h4>
-      <p>Age: ${bug.age}</p>
-      <p>Favorite Error Code: ${bug.favErrorCode}</p>
-      <p>Bug Id: ${bug._id}</p>
-      <button class='dynamic-delete-bug' data-id=${bug._id}>Delete</button>
+    <div class='bug-cards'>
+      <img src=${bug.image}><br>
+      <p>Hey, I'm ${bug.name}! I've been around for ${bug.age} years and I'm quite the fan of the ${bug.favErrorCode} error code. Nice to meet ya!</p>
+    </div>
 
-      <button data-id=${bug._id} class='show-update-field'>Update</button>
+      <button class='dynamic-delete-bug' data-id=${bug._id}>Release</button>
+
+      <button data-id=${bug._id} class='show-update-field'>Rename</button><br>
 
       <form class='update-field' style='display:none;'>
       <input name='bug[name]' type='text'>
@@ -112,13 +127,11 @@ const onDeleteBugFailure = () => {
 }
 
 const onUpdateBugSuccess = () => {
-  $('#message').text('Bug was updated')
-  $('#bug-message').trigger('reset')
+  $('#message').text('This bug has a new name!')
 }
 
-const onUpdateBugFailure = (error) => {
-  $('#message').text('Cannot update bug.')
-  console.error(error)
+const onUpdateBugFailure = () => {
+  $('#message').text('Cannot rename bug.')
 }
 
 module.exports = {
@@ -132,6 +145,8 @@ module.exports = {
   onChangePasswordFailure,
   onCreateBugFailure,
   onCreateBugSuccess,
+  onChooseBugTypeSuccess,
+  onChooseBugTypeFailure,
   onShowBugCageSuccess,
   onShowBugCageFailure,
   onDeleteBugSuccess,
