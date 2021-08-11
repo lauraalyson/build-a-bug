@@ -97,6 +97,8 @@ const onChooseBugType = function (event) {
 }
 
 const onShowBugCage = () => {
+  $('#create-bug').hide()
+
   api.showBugCage()
     .then(ui.onShowBugCageSuccess)
     .catch(ui.onShowBugCageFailure)

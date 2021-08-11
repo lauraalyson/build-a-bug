@@ -95,7 +95,7 @@ const onShowBugCageSuccess = (response) => {
     <div class='bug-cards'>
       <img src=${bug.image}><br>
       <p>Hey, I'm ${bug.name}! I've been around for ${bug.age} years and I'm quite the fan of the ${bug.favErrorCode} error code. Nice to meet ya!</p>
-    </div>
+
 
       <button class='dynamic-delete-bug' data-id=${bug._id}>Release</button>
 
@@ -105,6 +105,8 @@ const onShowBugCageSuccess = (response) => {
       <input name='bug[name]' type='text'>
       <input type='submit' value='submit'>
       </form>
+      <br>
+    </div>
     `
   })
 

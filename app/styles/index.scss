@@ -14,32 +14,36 @@ img {
 body {
   padding: 100px;
   font-family: 'Prompt', sans-serif;
-  // background-image: url("");
-  // background-position: center;
-  // background-repeat: no-repeat;
-  // background-size: cover;
 }
 
 h1, h2, h3, h4 {
   font-family: 'Archivo', sans-serif;
 }
 
-// #bug-cage, #bugcage {
-//   position: absolute;
-//   bottom: 0;
-//   right: 10%;
-// }
+h4 {
+  font-size: 14px;
+}
 
-// #show-all-bugs {
-//   max-width: 30%;
-// }
+#bug-cage, #bottom {
+  position: fixed;
+  bottom: 5%;
+  right: 5%;
+  max-width: 20%;
+}
+
+#bottom {
+  position: fixed;
+  bottom: 5%;
+  left: 5%;
+}
 
 
 .bug-cards {
-  .card {
+  align-content: center;
+  padding: 20px;
+  text-align: center;
   width: 450px;
-  height: 250px;
-  background-color:green;
+  height: 350px;
   background: linear-gradient(#f8f8f8, #fff);
   box-shadow: 0 8px 16px -8px rgba(0,0,0,0.4);
   border-radius: 6px;
@@ -47,26 +51,8 @@ h1, h2, h3, h4 {
   position: relative;
   margin: 1.5rem;
   }
+
+input {
+    background: transparent;
+    border-radius: 5px;
 }
-// .bug-details {
-//   max-width: 50%;
-//   align-content: center;
-//   color: green;
-//   background-color: orange;
-// }
-
-// input {
-//     background: transparent;
-//     border: none;
-//     border-bottom: 1px solid #000000;
-// }
-
-// input.hover {
-//     background: transparent;
-//     border: none;
-//     border-bottom: 1px solid #000000;
-// }
-
-// input.focus-visible {
-//     background: transparent;
-// }
