@@ -15,12 +15,16 @@ $(() => {
   $('#create-bug').on('submit', authEvents.onCreateBug)
   $('#bug-cage').on('click', authEvents.onShowBugCage)
   $('#bug-message').on('click', '.dynamic-delete-bug', authEvents.onDynamicDeleteButton)
-  $('#advice').on('click', authEvents.onAdviceCorner)
   $('#update-book-form').on('submit', authEvents.onUpdateBug)
   $('#bug-message').on('submit', '.update-field', authEvents.onUpdateBug)
+
   $('#bug-message').on('click', '.show-update-field', authEvents.onShowUpdateField)
+
   $('#bug-type-1').on('click', authEvents.onChooseBugType)
   $('#bug-type-2').on('click', authEvents.onChooseBugType)
   $('#bug-type-3').on('click', authEvents.onChooseBugType)
   $('#bug-type-4').on('click', authEvents.onChooseBugType)
+
+  $('#bug-message').on('click', '.advice', authEvents.onShowAdviceCorner)
+  $('#bug-message').on('submit', '.show-advice', authEvents.onAdviceCorner)
 })

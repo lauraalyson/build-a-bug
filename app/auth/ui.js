@@ -99,13 +99,23 @@ const onShowBugCageSuccess = (response) => {
 
       <button class='dynamic-delete-bug' data-id=${bug._id}>Release</button>
 
-      <button data-id=${bug._id} class='show-update-field'>Rename</button><br>
+      <button data-id=${bug._id} class='show-update-field'>Rename</button>
+
+      <button class='advice'>Ask for Advice</button>
 
       <form class='update-field' style='display:none;'>
       <input name='bug[name]' type='text'>
       <input type='submit' value='submit'>
       </form>
       <br>
+
+      <form class='show-advice' style='display:none'>
+      <br>
+      <input type='advice'>
+      <input value='Ask Away' type='submit'><br>
+      </form>
+
+      <p class='advice-response' style='display:none;'>'I'm just a bug.. I have no idea!" <br> - ${bug.name}</p>
     </div>
     `
   })

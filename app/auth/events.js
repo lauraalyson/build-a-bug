@@ -13,8 +13,15 @@ const onCreateAccount = (event) => {
   $('#confirm-message').text('Create an Account')
 }
 
+const onShowAdviceCorner = () => {
+  $('.show-advice').show()
+  $('.advice-response').hide()
+}
+
 const onAdviceCorner = (event) => {
-  $('#advice-response').show()
+  event.preventDefault()
+  $('.show-advice').hide()
+  $('.advice-response').show()
 }
 
 const onSignUp = (event) => {
@@ -134,6 +141,7 @@ const onUpdateBug = (event) => {
 }
 
 module.exports = {
+  onShowAdviceCorner,
   onAdviceCorner,
   onCreateAccount,
   onSignUp,

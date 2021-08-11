@@ -12,6 +12,7 @@ img {
 }
 
 body {
+  margin: auto;
   padding: 100px;
   font-family: 'Prompt', sans-serif;
 }
@@ -39,6 +40,7 @@ h4 {
 
 
 .bug-cards {
+  vertical-align: center;
   align-content: center;
   padding: 20px;
   text-align: center;
