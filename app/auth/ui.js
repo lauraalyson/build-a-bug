@@ -9,6 +9,8 @@ const onSignUpSuccess = (response) => {
   $('#sign-up').hide()
   $('#sign-in').show()
   $('#sign-out').hide()
+  $('#create-account').show()
+  $('#show-sign-in').hide()
 }
 
 const onSignUpFailure = () => {
@@ -152,7 +154,6 @@ const onUpdateBugSuccess = () => {
 }
 
 const onUpdateBugFailure = () => {
-  $('#message').text('Cannot rename bug.')
   $('#update-field').trigger('reset')
 }
 
