@@ -51,6 +51,7 @@ const onSignOutSuccess = (response) => {
   $('#build-a-bug').hide()
   $('#show-create-bug').hide()
   $('#confirm-new-password').hide()
+  $('#bug-cage').hide()
 }
 
 const onSignOutFailure = () => {
