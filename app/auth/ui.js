@@ -94,7 +94,7 @@ const onShowBugCageSuccess = (response) => {
 
   bugs.forEach(bug => {
     bugsHtml += `
-    <div class='bug-cards'>.
+    <div class='bug-cards'>
       <img src=${bug.image}><br>
       <p>Hey, I'm ${bug.name}! I've been around for ${bug.age} years and I'm quite the fan of the '${bug.favErrorCode}' error code. My friends say I remind them of ${bug.bugsLifeCharacter} from my favorite movie, A Bugs Life. Nice to meet ya!</p>
 
@@ -123,7 +123,6 @@ const onShowBugCageSuccess = (response) => {
   })
 
   $('#bug-message').html(bugsHtml)
-  // $('form').trigger('reset')
 }
 
 const onShowBugCageFailure = () => {
@@ -136,7 +135,6 @@ const onDeleteBugSuccess = () => {
 
   api.showBugCage()
     .then(onShowBugCageSuccess)
-    .then(onShowBugCageFailure)
 }
 
 const onDeleteBugFailure = () => {
@@ -150,7 +148,6 @@ const onUpdateBugSuccess = () => {
 
   api.showBugCage()
     .then(onShowBugCageSuccess)
-    .then(onShowBugCageFailure)
 }
 
 const onUpdateBugFailure = () => {
