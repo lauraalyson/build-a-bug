@@ -61,7 +61,6 @@ const onSignOutFailure = () => {
 const onChangePasswordSuccess = () => {
   $('#message').text('Woohoo! New password!')
   $('#change-password').hide()
-  $('#confirm-new-password').show()
   $('#change-password').trigger('reset')
 }
 
