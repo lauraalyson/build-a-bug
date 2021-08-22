@@ -30,6 +30,7 @@ const onSignInSuccess = (response) => {
   $('#show-create-bug').show()
   $('#create-bug').hide()
   $('#bug-cage').show()
+  $('#show-sign-in').hide()
 }
 
 const onSignInFailure = () => {
@@ -130,6 +131,10 @@ const onShowBugCageFailure = () => {
 const onDeleteBugSuccess = () => {
   $('#message').text('Bug was deleted')
   $('form').trigger('reset')
+
+  api.showBugCage()
+    .then(onShowBugCageSuccess)
+    .then(onShowBugCageFailure)
 }
 
 const onDeleteBugFailure = () => {

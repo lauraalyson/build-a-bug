@@ -18,11 +18,13 @@ const onShowSignIn = (event) => {
   $('#sign-in').show()
   $('#create-account').show()
   $('#sign-up').hide()
+  $('#show-sign-in').hide()
 }
 
-const onShowAdviceCorner = () => {
-  $('.show-advice').show()
+const onShowAdviceCorner = (event) => {
+  $('.show-advice').show().trigger('reset')
   $('.advice-response').hide()
+  $('.update-field').hide()
 }
 
 const onAdviceCorner = (event) => {
@@ -123,7 +125,9 @@ const onDynamicDeleteButton = (event) => {
 
 const onShowUpdateField = (event) => {
   store.updateId = $(event.target).data('id')
-  $('.update-field').show()
+  $('.update-field').toggle()
+  $('.show-advice').hide()
+  $('.advice-response').hide()
 }
 
 const onUpdateBug = (event) => {
