@@ -15,7 +15,7 @@ const opn = require('opn')
 let firstBuild = true
 
 // port for development server
-const port = 7165
+const port = 4741
 
 // Set the mode to development (default is 'production')
 webpackConfig.mode = 'development'
@@ -48,7 +48,7 @@ module.exports = {
     inline: true, // reload on change
     webpack: webpackConfig,
     publicPath: '/public/',
-    contentBase: [ path.join(__dirname, '/../') ],
+    contentBase: [path.join(__dirname, '/../')],
     watchContentBase: true
   },
 

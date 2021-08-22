@@ -1,6 +1,7 @@
 'use strict'
 
 const store = require('./../store')
+const api = require('./api')
 
 const onSignUpSuccess = (response) => {
   $('#message').text(`Thank you for signing up ${response.user.email}`)
@@ -58,6 +59,7 @@ const onChangePasswordSuccess = () => {
   $('#message').text('Woohoo! New password!')
   $('#change-password').hide()
   $('#confirm-new-password').show()
+  $('#change-password').trigger('reset')
 }
 
 const onChangePasswordFailure = () => {
@@ -140,10 +142,15 @@ const onDeleteBugFailure = () => {
 
 const onUpdateBugSuccess = () => {
   $('#message').text('This bug has a new name!')
+  $('.update-field').hide()
+  $('.update-field').trigger('reset')
+
+  api.showBugCage()
 }
 
 const onUpdateBugFailure = () => {
   $('#message').text('Cannot rename bug.')
+  $('#update-field').trigger('reset')
 }
 
 module.exports = {
