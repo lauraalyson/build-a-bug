@@ -4,8 +4,7 @@ const store = require('./../store')
 const api = require('./api')
 
 const onSignUpSuccess = (response) => {
-  $('#message').text(`Thank you for signing up ${response.user.email}`)
-  console.log(response)
+  $('#message').show().text(`Thank you for signing up ${response.user.email}`)
   $('#sign-up').trigger('reset')
   $('#sign-up').hide()
   $('#sign-in').show()
@@ -13,7 +12,7 @@ const onSignUpSuccess = (response) => {
 }
 
 const onSignUpFailure = () => {
-  $('#message').text('Sign up failure')
+  $('#message').show().text('Sign up failure')
   $('#sign-up').trigger('reset')
 }
 
@@ -31,7 +30,6 @@ const onSignInSuccess = (response) => {
   $('#show-create-bug').show()
   $('#create-bug').hide()
   $('#bug-cage').show()
-  console.log('this is store.token: ' + store.token)
 }
 
 const onSignInFailure = () => {
@@ -48,6 +46,7 @@ const onSignOutSuccess = (response) => {
   $('#show-change-password').hide()
   $('#change-password').hide()
   $('#build-a-bug').hide()
+  $('#show-create-bug').hide()
   $('#confirm-new-password').hide()
 }
 
@@ -87,12 +86,10 @@ const onChooseBugTypeFailure = () => {
 }
 
 const onShowBugCageSuccess = (response) => {
-  console.log('This is the response.bug: ' + response.bugs)
   const bugs = response.bugs
   let bugsHtml = ''
 
   bugs.forEach(bug => {
-    console.log(bug)
     bugsHtml += `
     <div class='bug-cards'>.
       <img src=${bug.image}><br>
@@ -127,7 +124,6 @@ const onShowBugCageSuccess = (response) => {
 }
 
 const onShowBugCageFailure = () => {
-  console.log('no bugs found')
   $('#message').text('Cannot find bugs')
 }
 
@@ -141,11 +137,13 @@ const onDeleteBugFailure = () => {
 }
 
 const onUpdateBugSuccess = () => {
-  $('#message').text('This bug has a new name!')
+  $('#message').show().text('This bug has a new name!')
   $('.update-field').hide()
   $('.update-field').trigger('reset')
 
   api.showBugCage()
+    .then(onShowBugCageSuccess)
+    .then(onShowBugCageFailure)
 }
 
 const onUpdateBugFailure = () => {
