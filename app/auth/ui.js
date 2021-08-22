@@ -33,6 +33,7 @@ const onSignInSuccess = (response) => {
   $('#create-bug').hide()
   $('#bug-cage').show()
   $('#show-sign-in').hide()
+  $('#bug-message').hide()
 }
 
 const onSignInFailure = () => {
