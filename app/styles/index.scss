@@ -1,0 +1,64 @@
+@import '~bootstrap/scss/bootstrap';
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@300;500&family=Prompt:ital,wght@0,200;0,300;1,200;1,300&family=Rubik:wght@300&family=Work+Sans:ital,wght@0,300;1,300&display=swap');
+
+
+// font-family: 'Archivo', sans-serif;
+// font-family: 'Prompt', sans-serif;
+// font-family: 'Rubik', sans-serif;
+// font-family: 'Work Sans', sans-serif;
+
+img {
+  max-width: 35%;
+}
+
+body {
+  margin: auto;
+  padding: 100px;
+  font-family: 'Prompt', sans-serif;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Archivo', sans-serif;
+}
+
+h4 {
+  font-size: 14px;
+}
+
+#bug-cage, #bottom {
+  position: fixed;
+  bottom: 5%;
+  right: 5%;
+  max-width: 20%;
+}
+
+#bottom {
+  position: fixed;
+  bottom: 5%;
+  left: 5%;
+}
+
+
+.bug-cards {
+  vertical-align: center;
+  align-content: center;
+
+  text-align: center;
+  width: 320px;
+  height: 475px;
+  background: linear-gradient(#f8f8f8, #fff);
+  box-shadow: 0 8px 16px -8px rgba(0,0,0,0.4);
+  border-radius: 6px;
+  overflow: hidden;
+  position: relative;
+  margin: 1em;
+  }
+
+.bug-cards p {
+  max-width: 97%;
+  padding: .2em;
+}
+
+input {
+    border-radius: 5px;
+}
