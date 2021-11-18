@@ -42,10 +42,10 @@ h4 {
 .bug-cards {
   vertical-align: center;
   align-content: center;
-  padding: 2em;
+  padding: 20px;
   text-align: center;
-  width: 5em;
-  height: 5em;
+  width: 350px;
+  height: 400px;
   background: linear-gradient(#f8f8f8, #fff);
   box-shadow: 0 8px 16px -8px rgba(0,0,0,0.4);
   border-radius: 6px;
@@ -53,6 +53,10 @@ h4 {
   position: relative;
   margin: 1.5rem;
   }
+
+.bug-cards p {
+  max-width: 90%;
+}
 
 input {
     border-radius: 5px;
