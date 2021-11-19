@@ -3,8 +3,6 @@
 Let's pay homage to the O.G. bug - no, not that bug - the insect!
 Build-A-Bug is a simple and interactive game that allows users to build and customize for buggy friend. Take a break from the bugs in your code and Build-A-Bug instead. Login and create a bug, give your bug characteristics like age, name, and favorite error code, and add them to your bug cage! Want to let a bug go? No problem! Easily 'release' your bug back into the digital world. Not diggin' your bugs name anymore? No sweat. Rename your bug at any time. Pssttt.. you can even as your buggy pal for advice.
 
-Demo Email: `testing@mail.com` Password: `test`
-
 
 # Directory
 
@@ -12,6 +10,7 @@ Demo Email: `testing@mail.com` Password: `test`
 - [Client Repository](https://github.com/lauraalyson/build-a-bug-client)
 - [Server Repository](https://github.com/lauraalyson/build-a-bug-server)
 - [Entity Relationship Diagram (ERD)](https://i.imgur.com/Vk6MSmb.png)
+- Demo Email: `testing@mail.com` Password: `test`
  
 ## Tech Used
 - JavaScript
