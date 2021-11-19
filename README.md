@@ -26,7 +26,7 @@ Build-A-Bug is a simple and interactive game that allows users to build and cust
   <img src='https://user-images.githubusercontent.com/74627896/142648767-5e847047-c3f2-46da-a069-328ef22fb2e8.gif' height='auto' width='24%'>
   <img src='https://user-images.githubusercontent.com/74627896/142648974-2c9a8db8-a3b4-4b06-91ac-766549cd97b4.gif' height='auto' width='24%'>
   <img src='https://user-images.githubusercontent.com/74627896/142648790-c8442abb-debc-4204-9884-d5777d459666.gif' height='auto' width='24%'>
-  <img src='https://user-images.githubusercontent.com/74627896/142648804-a3ec18d7-76cc-438b-bc69-bd01cdff18f4.gif' height='auto' width='25%'>
+  <img src='https://user-images.githubusercontent.com/74627896/142648804-a3ec18d7-76cc-438b-bc69-bd01cdff18f4.gif' height='auto' width='24%'>
 </div>
 
 <br />
